@@ -5,14 +5,14 @@ This lightweight JQuery plugin enables basic Ajax file uploading features (selec
 ## 1. Requirements
 
 - This plugin does not support the old versions of Internet Explorer.  
-- This plugin requires Bootstrap 4.x  
+- This plugin requires Bootstrap 4.x o 5  
 
 You should make sure that the page html layout has the following ```<meta>``` tag:  
 ```html
 <meta name="csrf-token" content="{{ csrf_token() }}">
 ```
 
-Otherwise, the request may be blocked by Laravel by default. See more details at https://laravel.com/docs/5.8/csrf#csrf-x-csrf-token.  
+Otherwise, the request may be blocked by Laravel by default. See more details at https://laravel.com/docs/10.x/csrf#main-content.  
 
 The plugin automatically checks the existence of this ```<meta>``` tag, get its content and associate ```X-CSRF-TOKEN``` header with the uploading request.  
  
@@ -32,7 +32,7 @@ $(document).ready(function () {
 
 ## 2. Installation
 
-    npm install @bkstar18/jquery-ajax-uploader
+    npm install @enlinea777/jquery-ajax-uploader
 
 ## 3. Usage
 
@@ -46,7 +46,7 @@ Insert a normal file input tag as follows:
 **In Javascript section**:  
 ```javascript
 // JQuery must be loaded before this section
-<script src="/path/to/enlinea777-ajax-uploader.min.js"></script> // This minified JS file can be found at node_modules/@bkstar18/jquery-ajax-uploader/dist/ path
+<script src="/path/to/enlinea777-ajax-uploader.min.js"></script> // This minified JS file can be found at node_modules/@enlinea777/jquery-ajax-uploader/dist/ path
 <script type="text/javascript">
 $(document).ready(function () {
     $('#image-upload').enlinea777_ajaxuploader(settings);
@@ -58,10 +58,10 @@ Passing ```settings``` to ```enlinea777_ajaxuploader()``` is optional. If you do
 
 ```javascript
 defaults = {
-    size: 5242880, // In bytes <=> 5MB
+    size: 500242880, // In bytes <=> 500MB
     uploadUrl: '/upload', // Backend URL to upload file
     batchSize: 5, // Maximum number of files that can be uploaded in parallel
-    allowedExtensions: ['png', 'jpg', 'jpeg', 'mp4', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'txt', 'pdf'], // Accepted file extensions
+    allowedExtensions: ['png', 'jpg', 'jpeg', 'mp4', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'txt', 'exe', 'pdf'], // Accepted file extensions
     progressBarColor: 'bg-primary', // set the color of the progress bar, see https://getbootstrap.com/docs/4.3/components/progress/
 }
 ```
@@ -129,7 +129,7 @@ This section will demonstrate how to build a completed system (both backend & fr
 (See its full documentation at https://github.com/enlinea777/laravel-uploader)     
 
 **Frontend**:
-- Built with this JQuery plugin ***@bkstar18/jquery-ajax-uploader***, of course :-)  
+- Built with this JQuery plugin ***@enlinea777/jquery-ajax-uploader***, of course :-)  
 
 ### 4.1 Preparation
 
@@ -205,8 +205,8 @@ The purpose of scaffolding is just to quickly generate the master layout and oth
 **a) Install enlinea777/laravel-uploader package**  
 ```composer require enlinea777/laravel-uploader```  
 
-**b) Install @bkstar18/jquery-ajax-uploader plugin**  
-```npm install --save-dev @bkstar18/jquery-ajax-uploader```
+**b) Install @enlinea777/jquery-ajax-uploader plugin**  
+```npm install --save-dev @enlinea777/jquery-ajax-uploader```
 
 **c) Bundle the plugin into the main app.js**  
 - Place the following line in the ```resources/js/bootstrap.js```
@@ -216,7 +216,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-    require('@bkstar18/jquery-ajax-uploader'); // Add this line
+    require('@enlinea777/jquery-ajax-uploader'); // Add this line
 } catch (e) {}
 ```
 
@@ -230,7 +230,7 @@ namespace App\Http\Controllers;
 
 use App\Photo;
 use Illuminate\Http\Request;
-use Bkstar123\LaravelUploader\Contracts\FileUpload;
+use Enlinea777\LaravelUploader\Contracts\FileUpload;
 
 class UploadController extends Controller
 {

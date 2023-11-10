@@ -1,6 +1,6 @@
 {
   "name": "@enlinea777/jquery-ajax-uploader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JQuery plugin for Ajax  uploading",
   "main": "./src/index.js",
   "scripts": {
